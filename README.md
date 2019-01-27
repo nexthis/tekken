@@ -1,1 +1,1 @@
-cokolwiek teraz ll
+cokolwiek teraz ll2
