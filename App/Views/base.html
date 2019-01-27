@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--fontawesome-bulma -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,700" rel="stylesheet">
+    <!--css-->
     <link rel="stylesheet" href="assets\css\style.css">
-    <title>{% block title %}{% endblock %}</title>
+
+    <title>{% block title %} {% endblock %}</title>
+    {% block head %} {% endblock %}
 </head>
+
 <body>
+
+    <nav class="navBar">
+        <a href="/Tekken" class="navTitle is-size-3">Tekken</a>
+        <div class="tekken-menu">
+            <a href="/Tekken/statystyki" class="link">Umiejętności</a>
+            <a href="#" class="link">Ekwipunek</a>
+            <a href="#" class="link">Walka</a>
+            <a href="#" class="link">Autorzy</a>
+        </div>
+    </nav>
+
     {% block body %}
     {% endblock %}
+
+
+
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--js-->
+    <script src="assets\js\main.js"></script>
+    {% block bodyEnd %}
+    {% endblock %}
 </body>
+
 </html>
