@@ -114,4 +114,10 @@ body{
 {
     margin-bottom: 150px;
 }
+.hero-card .hero-img:hover {
+    transform: scale(1.1);
+    transition: .5s ease;
+    border-radius:6px;
+    opacity: 0.8;
+  }
 /* END SELECT HERO */
