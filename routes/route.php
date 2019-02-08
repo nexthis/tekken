@@ -8,6 +8,7 @@ $router = new Core\Router();
 
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('statystyki', ['controller' => 'Skills', 'action' => 'index']);
+$router->add('ekwipunek', ['controller' => 'Equipment', 'action' => 'index']);
 // Add the api routes 
     
 $router->dispatch($_SERVER['QUERY_STRING']);
