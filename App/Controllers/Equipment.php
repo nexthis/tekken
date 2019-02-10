@@ -4,6 +4,7 @@ namespace App\Controllers;
  
 use \Core\View;
 use \Core\Controller;
+use App\Models\Heroes;
 /**
  * Home controller
  *  
@@ -12,6 +13,13 @@ use \Core\Controller;
 class Equipment extends Controller
 {
 
+    public function __construct()
+    {
+        if(!Heroes::isSelected()){
+            $this->routeTo('');
+        }
+    } 
+    
     /**
      * Show the index page
      *

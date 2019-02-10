@@ -4,6 +4,7 @@ namespace App\Controllers;
  
 use \Core\View;
 use \Core\Controller;
+use App\Models\Heroes;
 /**
  * Home controller
  *  
@@ -12,14 +13,26 @@ use \Core\Controller;
 class Home extends Controller
 {
 
+    // public function __construct()
+    // {
+    //     if(Heroes::isSelected()){
+
+    //         $this->routeTo('umiejetnosci');
+    //     }
+    // } 
     /**
      * Show the index page
      *
      * @return void
      */
     public function index()
-    {
+    {        
         View::renderTemplate('Home/index.html');
+
     }
 
+    public function selectHero(){
+        Heroes::setSelected(true);
+        $this->routeTo('walka');
+    }
 }

@@ -5,6 +5,7 @@ body{
     font-family: 'Roboto Slab', serif; 
     background-color: #EEEEEE;
     height: 100vh;
+   /* background-image: url("/Tekken/assets/images/Equipment.jpg");*/
 }
 
 
@@ -89,6 +90,7 @@ body{
     font-size: 20px;
     text-align: center;
     font-weight: 700;
+    margin-top: 10px;
 }
 
 .hero-card .hero-img{
@@ -106,56 +108,119 @@ body{
 /* END SELECT HERO */
 
 /* Skills */ 
-.skills{
-    height: 80vh;
-    width: 100%;
+.skill-card{
+    background-color: #202124;
+    height: 250px;
+    width: 150px;
+    float: left;
+    margin-left: 10px;
     position: relative;
 }
+.skill-card img {
+    display: block;
+    margin-top: 50px;
+    filter: brightness(0) invert(1);
+    padding: 0 10px;
+}
 
-.skill-1{
+.skill-card::before {
+    content: '';
     position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    height: 10px;
+    width: 100%;
+    background-color:  #388E3C;
+}
+.skill-card::after{
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 100%;
+    background-color:  #388E3C;
     bottom: 0;
-}
-
-.skill-2{
-    position: absolute;
-    left: 30%;
-
-    bottom: 20%;
-}
-.skill-3{
-    position: absolute;
-    right: 30%;
-    bottom: 20%;
-}
-
-.skill-4{
-    position: absolute;
     left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    bottom: 40%;
 }
-.skill-5{
-    position: absolute;
-    right: 30%;
-    bottom: 60%;
+.skill-center{
+    margin-left: 10%;
 }
-.skill-6{
-    position: absolute;
-    left: 30%;
-    bottom: 60%;
+.skill-center-last{
+    margin-left: 30%;
 }
-.skill-7{
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    bottom: 80%;
+
+
+/* Equipment */
+
+.equipment-container{
+    width: 70vw;
+    margin: 50px auto 0 auto;
+    background-color: #202124;
+    border-radius: 5px;
+    border: 5px solid #202124;
+}
+
+.equipment-title{
+    color: white;
+    font-size: 25px;
+    padding: 10px 0 0 20px;
+}
+.equipment{
+    background-color: bisque;
+    width: 100%;
+    margin: 10px auto 0 auto;
+}
+.equipment-col{
+    border: 2px solid #202124;
+    height: 200px;
+}
+.equipment > .columns {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/*Fight*/
+.img-center{
+    display: block;
+    margin: 0 auto;
+}
+
+.fight-stats{
+    font-size: 30px;
+    text-align: center;
+}
+.progres-75{
+    width: 75%;
+    margin: 0 auto;
+}
+.mt-3{
+    margin-top: 20px;
+}
+
+.fight-skills{
+    width: 50%;
+    height: 120px;
+    background-color: #202124;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+.fight-skills .skill{
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+    margin-top: 10px;
+    cursor: pointer;
+    float: left;
+}
+.fight-skills .skill img{
+    border-radius: 100%;
+}
+.fight-skills .skills{
+    margin: 0 auto;
+    width: 450px;
+}
+.skill-effect{
+    transition: all 0.5s;
+}
+.skill-effect:hover{
+    border: 5px solid #388E3C;
 }

@@ -10,14 +10,16 @@ use App\Models\Heroes;
  *  
  * PHP version 7.0
  */
-class Skills extends Controller
+class Fight extends Controller
 {
     public function __construct()
     {
         if(!Heroes::isSelected()){
+
             $this->routeTo('');
         }
     } 
+
     /**
      * Show the index page
      *
@@ -25,7 +27,7 @@ class Skills extends Controller
      */
     public function index()
     {
-        View::renderTemplate('Skills/index.html');
+        View::renderTemplate('Fight/index.html');
     }
 
 }

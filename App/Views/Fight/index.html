@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Tekken{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <img src="https://picsum.photos/400/500" class="img-center" alt="" srcset="">
+                <h1 class="fight-stats mt-3">100%</h1>
+                <progress class="progress is-danger progres-75" value="100" max="100">100%</progress>
+                <h1 class="fight-stats">100%</h1>
+                <progress class="progress is-info progres-75" value="100" max="100">100%</progress>
+            </div>
+            <div class="column">
+                <img src="https://picsum.photos/400/500" class="img-center" alt="" srcset="">
+                <h1 class="fight-stats mt-3">100%</h1>
+                <progress class="progress is-danger progres-75" value="100" max="100">100%</progress>
+                <h1 class="fight-stats">100%</h1>
+                <progress class="progress is-info progres-75" value="100" max="100">100%</progress>
+            </div>
+        </div>
+        <div class="fight-skills">
+            <div class="skills">
+                <div class="skill">
+                    <img class="skill-effect" src="assets/images/heros/skills/mag-1.jpg" alt="" srcset="">
+                </div>
+                <div class="skill">
+                    <img class="skill-effect" src="assets/images/heros/skills/mag-2.jpg" alt="" srcset="">
+                </div>
+                <div class="skill">
+                    <img class="skill-effect" src="assets/images/heros/skills/mag-3.jpg" alt="" srcset="">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

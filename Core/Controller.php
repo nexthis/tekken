@@ -53,6 +53,9 @@ abstract class Controller
         }
     }
 
+    protected function routeTo($url){
+        header('Location: http://localhost/Tekken/'.$url);
+    }
     /**
      * Before filter - called before an action method.
      *
