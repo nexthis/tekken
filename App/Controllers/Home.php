@@ -12,7 +12,11 @@ use App\Models\Heroes;
  */
 class Home extends Controller
 {
-
+    /**
+     * It will block the main page
+     *
+     * @return void
+     */
     // public function __construct()
     // {
     //     if(Heroes::isSelected()){
@@ -20,19 +24,20 @@ class Home extends Controller
     //         $this->routeTo('umiejetnosci');
     //     }
     // } 
+
     /**
      * Show the index page
      *
      * @return void
      */
     public function index()
-    {        
+    {   
+        
         View::renderTemplate('Home/index.html');
-
     }
 
     public function selectHero(){
-        Heroes::setSelected(true);
+        Heroes::setHero($_GET['heroSelected']);
         $this->routeTo('walka');
     }
 }

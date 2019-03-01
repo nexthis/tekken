@@ -13,5 +13,6 @@ $router->add('walka', ['controller' => 'Fight', 'action' => 'index']);
 
 // Add the api routes 
 $router->add('select-hero', ['controller' => 'Home', 'action' => 'selectHero']);
+$router->add('get-hero', ['controller' => 'Fight', 'action' => 'getHero']);
 
 $router->dispatch($_SERVER['QUERY_STRING']);

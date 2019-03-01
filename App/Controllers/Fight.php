@@ -12,6 +12,11 @@ use App\Models\Heroes;
  */
 class Fight extends Controller
 {
+    /**
+     * It will block the main page
+     *
+     * @return void
+     */
     public function __construct()
     {
         if(!Heroes::isSelected()){
@@ -28,6 +33,11 @@ class Fight extends Controller
     public function index()
     {
         View::renderTemplate('Fight/index.html');
+    }
+
+    public function getHero(){
+        header('Content-type: application/json');
+        echo json_encode(Heroes::selctedHero());
     }
 
 }

@@ -12,6 +12,11 @@ use App\Models\Heroes;
  */
 class Skills extends Controller
 {
+    /**
+     * It will block the main page
+     *
+     * @return void
+     */
     public function __construct()
     {
         if(!Heroes::isSelected()){

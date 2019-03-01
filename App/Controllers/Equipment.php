@@ -13,6 +13,11 @@ use App\Models\Heroes;
 class Equipment extends Controller
 {
 
+    /**
+     * It will block the main page
+     *
+     * @return void
+     */
     public function __construct()
     {
         if(!Heroes::isSelected()){
