@@ -5,6 +5,7 @@ namespace App\Controllers;
 use \Core\View;
 use \Core\Controller;
 use App\Models\Heroes;
+use App\Models\Enemy;
 /**
  * Home controller
  *  
@@ -12,6 +13,7 @@ use App\Models\Heroes;
  */
 class Fight extends Controller
 {
+    private $enemy = Enemy::class;
     /**
      * It will block the main page
      *
@@ -38,6 +40,14 @@ class Fight extends Controller
     public function getHero(){
         header('Content-type: application/json');
         echo json_encode(Heroes::selctedHero());
+    }
+
+    function getEnemy(){
+       
+        header('Content-type: application/json');
+        $this->enemy = new Enemy(Heroes::selctedHero()->level);
+        echo json_encode( $this->enemy);
+
     }
 
 }

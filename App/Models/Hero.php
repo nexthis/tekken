@@ -2,8 +2,17 @@
 
 namespace App\Models;
 
+
 class Hero{
-    public $name, $health, $damage, $manna, $defense, $image,$skillsImage;
+    public
+    $name, 
+    $health, 
+    $damage, 
+    $manna, 
+    $defense, 
+    $image,
+    $skillsImage,
+    $level = 0;
 
     function __construct($hero)
     {

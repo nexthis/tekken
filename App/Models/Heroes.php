@@ -8,12 +8,12 @@ class Heroes
      [
           [
                'name' => "Wojownik",
-               'health' => 30,
-               'damage' => 40,
-               'manna' => 70,
-               'defense' => 40,
+               'health' => 90,
+               'damage' => 30,
+               'manna' => 10,
+               'defense' => 75,
                'image' => 'https://picsum.photos/200/300',
-               'skills-image' => ['assets/images/heros/skills/mag-1.jpg', 'assets/images/heros/skills/mag-2.jpg', 'assets/images/heros/skills/mag-3.jpg'],
+               'skills-image' => ['assets/images/heros/skills/wojownik-1.png', 'assets/images/heros/skills/wojownik-2.png', 'assets/images/heros/skills/wojownik-3.png'],
           ],
 
           [
@@ -23,37 +23,37 @@ class Heroes
                'manna' => 70,
                'defense' => 40,
                'image' => 'https://picsum.photos/200/300',
-               'skills-image' => ['assets/images/heros/skills/mag-1.jpg', 'assets/images/heros/skills/mag-2.jpg', 'assets/images/heros/skills/mag-3.jpg'],
+               'skills-image' => ['assets/images/heros/skills/magik-1.png', 'assets/images/heros/skills/magik-2.png', 'assets/images/heros/skills/magik-3.png'],
           ],
 
           [
                'name' => "Paladyn",
-               'health' => 30,
-               'damage' => 40,
-               'manna' => 70,
-               'defense' => 40,
+               'health' => 90,
+               'damage' => 50,
+               'manna' => 25,
+               'defense' => 30,
                'image' => 'https://picsum.photos/200/300',
-               'skills-image' => ['assets/images/heros/skills/mag-1.jpg', 'assets/images/heros/skills/mag-2.jpg', 'assets/images/heros/skills/mag-3.jpg'],
+               'skills-image' => ['assets/images/heros/skills/paladyn-1.png', 'assets/images/heros/skills/paladyn-2.png', 'assets/images/heros/skills/paladyn-3.png'],
           ],
 
           [
                'name' => "Nieumarły",
-               'health' => 30,
-               'damage' => 40,
-               'manna' => 70,
+               'health' => 50,
+               'damage' => 50,
+               'manna' => 30,
                'defense' => 40,
                'image' => 'https://picsum.photos/200/300',
-               'skills-image' => ['assets/images/heros/skills/mag-1.jpg', 'assets/images/heros/skills/mag-2.jpg', 'assets/images/heros/skills/mag-3.jpg'],
+               'skills-image' => ['assets/images/heros/skills/nieumarły-1.png', 'assets/images/heros/skills/nieumarły-2.png', 'assets/images/heros/skills/nieumarły-3.png'],
           ],
 
           [
                'name' => "Ninja",
                'health' => 30,
-               'damage' => 40,
-               'manna' => 70,
-               'defense' => 40,
+               'damage' => 70,
+               'manna' => 40,
+               'defense' => 10,
                'image' => 'https://picsum.photos/200/300',
-               'skills-image' => ['assets/images/heros/skills/mag-1.jpg', 'assets/images/heros/skills/mag-2.jpg', 'assets/images/heros/skills/mag-3.jpg'],
+               'skills-image' => ['assets/images/heros/skills/ninja-1.png', 'assets/images/heros/skills/ninja-2.png', 'assets/images/heros/skills/ninja-3.png'],
           ],
 
      ];
@@ -74,7 +74,7 @@ class Heroes
 
           $_SESSION['isSelected'] = $is_selected;
           $_SESSION['selctedHeroIndex'] = $id;
-          $_SESSION['selctedHero'] = new Hero(self::$class[$_SESSION['selctedHeroIndex']]);
+          $_SESSION['selctedHero'] = new Hero(self::$class[$id]);
      }
      
      public static function setHeroByName($name, $is_selected = true)
@@ -86,12 +86,12 @@ class Heroes
      public static function selctedHeroIndex()
      {
           //TODO add isSelected
-          return $_SESSION['selctedHeroIndex'];
+          return unserialize(serialize($_SESSION['selctedHeroIndex']));
      }
 
      public static function selctedHero()
      {
-          return $_SESSION['selctedHero'];
+          return unserialize(serialize($_SESSION['selctedHero']));
      }
 }
 
