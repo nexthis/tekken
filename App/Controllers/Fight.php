@@ -14,6 +14,7 @@ use App\Models\Enemy;
 class Fight extends Controller
 {
     private $enemy = Enemy::class;
+    private $myRound = true;
     /**
      * It will block the main page
      *
@@ -43,11 +44,13 @@ class Fight extends Controller
     }
 
     function getEnemy(){
-       
         header('Content-type: application/json');
         $this->enemy = new Enemy(Heroes::selctedHero()->level);
         echo json_encode( $this->enemy);
+    }
 
+    function makeFight(){
+        
     }
 
 }

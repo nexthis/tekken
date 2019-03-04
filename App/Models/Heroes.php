@@ -71,7 +71,7 @@ class Heroes
                $_SESSION['isSelected'] = $is_selected;
                return;
           }
-
+          
           $_SESSION['isSelected'] = $is_selected;
           $_SESSION['selctedHeroIndex'] = $id;
           $_SESSION['selctedHero'] = new Hero(self::$class[$id]);

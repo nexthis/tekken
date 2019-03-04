@@ -71,6 +71,22 @@ $(window).ready(()=>{
         alert("Wystąpił błąd w inicjacji zobacz do konsoli");
         console.log(error);
     };
-
-
 })
+
+
+$("#skill-1").click(function() {
+    fight(1);
+});
+
+$("#skill-2").click(function() {
+    fight(2);
+});
+
+$("#skill-3").click(function() {
+    fight(3);
+});
+
+
+function fight(skill){
+
+}
