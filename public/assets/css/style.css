@@ -224,3 +224,11 @@ body{
 .skill-effect:hover{
     border: 5px solid #388E3C;
 }
+
+/*Statistics*/
+
+.statistics-title{
+    font-size: 30px;
+    text-align: left;
+    font-weight: bold;
+}

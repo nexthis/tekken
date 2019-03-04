@@ -32,8 +32,9 @@ class Statistics extends Controller
      */
     public function index()
     {
-        View::renderTemplate('Statistics/index.html');
-        echo Heroes::selctedHero()->health;
+        $hero = Heroes::selctedHero();
+        View::renderTemplate('Statistics/index.html',compact('hero'));
+
     }
 
 }
