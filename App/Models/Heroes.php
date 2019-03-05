@@ -12,7 +12,7 @@ class Heroes
                'damage' => 30,
                'manna' => 10,
                'defense' => 75,
-               'image' => 'https://picsum.photos/200/300',
+               'image' => 'assets/images/heros/portrait/wojownik.png',
                'skills-image' => ['assets/images/heros/skills/wojownik-1.png', 'assets/images/heros/skills/wojownik-2.png', 'assets/images/heros/skills/wojownik-3.png'],
           ],
 
@@ -42,7 +42,7 @@ class Heroes
                'damage' => 50,
                'manna' => 30,
                'defense' => 40,
-               'image' => 'https://picsum.photos/200/300',
+               'image' => 'assets/images/heros/portrait/nieumarły.png',
                'skills-image' => ['assets/images/heros/skills/nieumarły-1.png', 'assets/images/heros/skills/nieumarły-2.png', 'assets/images/heros/skills/nieumarły-3.png'],
           ],
 
@@ -52,7 +52,7 @@ class Heroes
                'damage' => 70,
                'manna' => 40,
                'defense' => 10,
-               'image' => 'https://picsum.photos/200/300',
+               'image' => 'assets/images/heros/portrait/ninja.png',
                'skills-image' => ['assets/images/heros/skills/ninja-1.png', 'assets/images/heros/skills/ninja-2.png', 'assets/images/heros/skills/ninja-3.png'],
           ],
 

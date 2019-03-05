@@ -42,6 +42,7 @@ $.ajax({
 function setHero(){
     $('#my-hp').text(`${hero.health} hp`)
     $('#my-manna').text(`${hero.manna} manny`)
+    //$('#my-image').attr("src",hero.image);
     $( ".skill-effect" ).each((index,element) =>  {
         $(element).attr("src",hero.skillsImage[index]);
     });

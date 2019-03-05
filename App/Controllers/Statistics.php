@@ -20,7 +20,9 @@ class Statistics extends Controller
      */
     public function __construct()
     {
+
         if(!Heroes::isSelected()){
+
             $this->routeTo('');
         }
     } 
@@ -32,6 +34,10 @@ class Statistics extends Controller
      */
     public function index()
     {
+        if(!Heroes::isSelected()){
+            $this->routeTo('');
+            return;
+        }
         $hero = Heroes::selctedHero();
         View::renderTemplate('Statistics/index.html',compact('hero'));
 
