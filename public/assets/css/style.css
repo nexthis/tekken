@@ -232,3 +232,24 @@ body{
     text-align: left;
     font-weight: bold;
 }
+
+
+/*Progress*/
+
+progress::-webkit-progress-value{
+    transition: all .5s ease-out;
+}
+
+
+/*Popup*/
+.popup{
+    position: fixed;
+    right: 20px;
+    padding: 7px;
+    border-radius: 10px;
+    top: 80px;
+}
+.popup.error{
+    background-color: #fd2222;
+    color: whitesmoke;
+}

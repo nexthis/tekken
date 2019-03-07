@@ -8,21 +8,22 @@
 {% endblock %}
 
 {% block body %}
+    
     <div class="container">
         <div class="columns">
             <div class="column">
                 <img src="https://picsum.photos/400/500" id="my-image" class="img-center" alt="" srcset="">
                 <h1 id="my-hp" class="fight-stats mt-3">100%</h1>
-                <progress class="progress is-danger progres-75" value="100" max="100">100%</progress>
+                <progress id="my-hp-progress" class="progress is-danger progres-75" value="100" max="100">100%</progress>
                 <h1 id="my-manna" class="fight-stats">100%</h1>
-                <progress class="progress is-info progres-75" value="100" max="100">100%</progress>
+                <progress id="my-manna-progress" class="progress is-info progres-75" value="100" max="100">100%</progress>
             </div>
             <div class="column">
                 <img src="https://picsum.photos/400/500" id="target-image" class="img-center" alt="" srcset="">
                 <h1 id="target-hp" class="fight-stats mt-3">100%</h1>
-                <progress class="progress is-danger progres-75" value="100" max="100">100%</progress>
+                <progress id="target-hp-progress" class="progress is-danger progres-75" value="100" max="100">100%</progress>
                 <h1 id="target-manna" class="fight-stats">100%</h1>
-                <progress class="progress is-info progres-75" value="100" max="100">100%</progress>
+                <progress id="target-manna-progress" class="progress is-info progres-75" value="100" max="100">100%</progress>
             </div>
         </div>
         <div class="fight-skills">

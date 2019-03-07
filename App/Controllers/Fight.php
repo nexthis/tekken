@@ -14,7 +14,6 @@ use App\Models\Enemy;
 class Fight extends Controller
 {
     private $enemy = Enemy::class;
-    private $myRound = true;
     /**
      * It will block the main page
      *
@@ -26,6 +25,7 @@ class Fight extends Controller
 
             $this->routeTo('');
         }
+        $this->enemy = isset($_SESSION["enemy"]) ? unserialize(serialize($_SESSION["enemy"])) : false;
     } 
 
     /**
@@ -46,11 +46,97 @@ class Fight extends Controller
     function getEnemy(){
         header('Content-type: application/json');
         $this->enemy = new Enemy(Heroes::selctedHero()->level);
+        $_SESSION["enemy"] = $this->enemy;
         echo json_encode( $this->enemy);
     }
 
     function makeFight(){
+        header('Content-type: application/json');
+
+        //current hero
+        $hero = Heroes::selctedHero();
+
+        //increases hero damage based on selected skill
+        switch($_REQUEST['skill']){
+            case 1:
+                    $this->enemy->health -= $this->takeDamage($hero->damage,$this->enemy->defense);
+                break;
+            case 2:
+                    if($hero->manna < 5) {
+                        echo json_encode(['error'=>'Masz za mało many !!']);
+                        return;
+                    }
+                    $hero->manna -= 5;
+                    $this->enemy->health -= $this->takeDamage($hero->damage*1.2,$this->enemy->defense);
+                break;
+            case 3:
+                    if($hero->manna < 5) {
+                        echo json_encode(['error'=>'Masz za mało many !!']);
+                        return;
+                    }
+                    $hero->manna -= 10;
+                    $this->enemy->health -= $this->takeDamage($hero->damage*1.4,$this->enemy->defense);
+                break;
+        }
+
+        //increases enemy damage based on selected skill (random)
+        switch(rand ( 1 , 3 )){
+            case 1:
+                    $hero->health -= $this->takeDamage($this->enemy->damage,$hero->defense);
+                break;
+            case 2:
+                    if($this->enemy->manna < 5) {
+                        $hero->health -= $this->takeDamage($this->enemy->damage,$hero->defense);
+                    }
+                    else{
+                        $this->enemy->manna -= 5;
+                        $hero->health -= $this->takeDamage($this->enemy->damage*1.2,$hero->defense);
+                    }
+                break;
+            case 3:
+                    if($this->enemy->manna < 10) {
+                        if($this->enemy->manna < 5) {
+                            $hero->health -= $this->takeDamage($this->enemy->damage,$hero->defense);
+                        }
+                        else{
+                            $this->enemy->manna -= 5;
+                            $hero->health -= $this->takeDamage($this->enemy->damage*1.2,$hero->defense);
+                        }
+                    }
+                    else{
+                        $this->enemy->manna -= 10;
+                        $hero->health -= $this->takeDamage($this->enemy->damage*1.4,$hero->defense);
+                    }
+                break;
+        }
         
+
+        //save states 
+        Heroes::setHeroByClass($hero);
+        $_SESSION["enemy"] = $this->enemy;
+
+        //RETURN json
+        echo json_encode(
+            [
+                'hero' => Heroes::selctedHero(),
+                'enemy'=>$this->enemy
+            ]
+        );
+    }
+
+    function takeDamage($damage,$defense){
+        if( $damage >  $defense){
+            
+            return  $damage * ( 1+0.05* ($damage - $defense) ); 
+        }
+        else if($damage ==  $defense){
+           
+            return  $damage;
+        }
+        else{
+            
+            return  $damage * ( 1+0.025* ($damage - $defense) ); 
+        }
     }
 
 }

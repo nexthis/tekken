@@ -10,8 +10,8 @@ class Heroes
                'name' => "Wojownik",
                'health' => 90,
                'damage' => 30,
-               'manna' => 10,
-               'defense' => 75,
+               'manna' => 20,
+               'defense' => 70,
                'image' => 'assets/images/heros/portrait/wojownik.png',
                'skills-image' => ['assets/images/heros/skills/wojownik-1.png', 'assets/images/heros/skills/wojownik-2.png', 'assets/images/heros/skills/wojownik-3.png'],
           ],
@@ -81,7 +81,10 @@ class Heroes
      { 
           //TODO add some code :-) 
      }
-
+     public static function setHeroByClass($class)
+     { 
+          $_SESSION['selctedHero'] = $class;
+     }
 
      public static function selctedHeroIndex()
      {
