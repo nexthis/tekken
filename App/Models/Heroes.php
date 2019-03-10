@@ -19,7 +19,7 @@ class Heroes
           [
                'name' => "Mag",
                'health' => 30,
-               'damage' => 40,
+               'damage' => 10,
                'manna' => 70,
                'defense' => 40,
                'image' => 'https://picsum.photos/200/300',

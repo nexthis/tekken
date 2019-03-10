@@ -2,37 +2,54 @@
 
 {% block title %}Tekken-Statystyki{% endblock %}
 
+{% block bodyEnd %}
+    <!--js skill-->
+    <script src="assets\js\skills.js"></script>
+{% endblock %}
 
 {% block body %}
+
+    <div class="modal">
+        <div class="modal-content has-text-centered">
+            <h1 class="title" id="title">asdasd</h1>
+            <p class="is-size-4	">Ten element wymaga: <span id="element-requires"></span> </p>
+            <p class="is-size-4	">W zamian dostajesz: <span id="element-benefits"></span>  </p>
+            <p class="is-size-4	">Aktualnie posiadasz: <span id="my-point"></span>  </p>
+            <br>
+            <a class="button is-primary" id="modal-confirm">OK</a>
+            <a class="button is-danger" id="modal-dismiss">Anuluj</a>
+        </div>
+    </div>
+
     <div class="container">
         <div class="columns">
             <div class="column"> 
                 <div class="skill-center">
-                    <div class="skill-card">
-                        <img src="assets/images/skills/attack-l5.png" alt="" srcset="">
+                    <div class="skill-card" data-skill="attack"content="3">
+                        <img src="assets/images/skills/attack-l5.png"   alt="" srcset="">
                     </div>
-                    <div class="skill-card">
-                        <img src="assets/images/skills/attack-l4.png" alt="" srcset="">
+                    <div class="skill-card" data-skill="attack"content="3">
+                        <img src="assets/images/skills/attack-l4.png"   alt="" srcset="">
                     </div>
                 </div>
             </div>
             <div class="column"> 
                 <div class="skill-center">
-                    <div class="skill-card">
-                            <img src="assets/images/skills/def-l6.png" alt="" srcset="">
+                    <div class="skill-card" data-skill="def"content="3">
+                            <img src="assets/images/skills/def-l6.png"  alt="" srcset="">
                     </div> 
-                    <div class="skill-card">
-                            <img src="assets/images/skills/def-l5.png" alt="" srcset="">
+                    <div class="skill-card" data-skill="def"content="3">
+                            <img src="assets/images/skills/def-l5.png"  alt="" srcset="">
                     </div>
                 </div>
             </div>
             <div class="column"> 
                 <div class="skill-center">
-                    <div class="skill-card">
-                        <img src="assets/images/skills/spell-l5.png" alt="" srcset="">
+                    <div class="skill-card" data-skill="spell"content="3">
+                        <img src="assets/images/skills/spell-l5.png"  alt="" srcset="">
                     </div>
-                    <div class="skill-card">
-                        <img src="assets/images/skills/spell-l4.png" alt="" srcset="">
+                    <div class="skill-card" data-skill="spell"content="3">
+                        <img src="assets/images/skills/spell-l4.png"  alt="" srcset="">
                     </div>
                 </div>
             </div>
@@ -40,52 +57,52 @@
         <div class="columns">
             <div class="column"> 
                 <div class="skill-center">
-                    <div class="skill-card">
+                    <div class="skill-card" data-skill="attack"content="2">
                         <img src="assets/images/skills/attack-l2.png"  alt="" srcset="">
                     </div>
-                    <div class="skill-card">
+                    <div class="skill-card" data-skill="attack"content="2">
                             <img src="assets/images/skills/attack-l3.png"  alt="" srcset="">
                     </div>
                 </div>
             </div>
             <div class="column"> 
                 <div class="skill-center">
-                    <div class="skill-card">
-                            <img src="assets/images/skills/def-l4.png" alt="" srcset="">
+                    <div class="skill-card" data-skill="def"content="2">
+                            <img src="assets/images/skills/def-l4.png"  alt="" srcset="">
                     </div> 
-                    <div class="skill-card">
-                            <img src="assets/images/skills/def-l3.png" alt="" srcset="">
+                    <div class="skill-card" data-skill="def"content="2">
+                            <img src="assets/images/skills/def-l3.png"  alt="" srcset="">
                     </div>
                 </div>
             </div>
             <div class="column"> 
                 <div class="skill-center">
-                    <div class="skill-card">
-                        <img src="assets/images/skills/spell-l3.png" alt="" srcset="">
+                    <div class="skill-card" data-skill="spell"content="2">
+                        <img src="assets/images/skills/spell-l3.png"  alt="" srcset="">
                     </div>
-                    <div class="skill-card">
-                        <img src="assets/images/skills/spell-l2.png" alt="" srcset="">
+                    <div class="skill-card" data-skill="spell"content="2">
+                        <img src="assets/images/skills/spell-l2.png"  alt="" srcset="">
                     </div>
                 </div>
             </div>
         </div>
         <div class="columns">
             <div class="column"> 
-                <div class="skill-center-last">
+                <div class="skill-center-last" data-skill="attack" content="1">
                     <div class="skill-card">
                         <img src="assets/images/skills/attack-l1.png"  alt="" srcset="">
                     </div>
                 </div>
             </div>
             <div class="column"> 
-                <div class="skill-center-last">    
+                <div class="skill-center-last" data-skill="def" content="1" >    
                     <div class="skill-card">
                         <img src="assets/images/skills/def-l2.png" alt="" srcset="">
                     </div>
                 </div>
             </div>
             <div class="column ">
-                <div class="skill-center-last"> 
+                <div class="skill-center-last" data-skill="spell" content="1" > 
                     <div class="skill-card">
                         <img src="assets/images/skills/spell-l1.png" alt="" srcset="">
                     </div>

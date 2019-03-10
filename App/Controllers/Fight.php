@@ -6,6 +6,8 @@ use \Core\View;
 use \Core\Controller;
 use App\Models\Heroes;
 use App\Models\Enemy;
+use App\Models\Hero;
+use App\Models\Items;
 /**
  * Home controller
  *  
@@ -45,7 +47,7 @@ class Fight extends Controller
 
     function getEnemy(){
         header('Content-type: application/json');
-        $this->enemy = new Enemy(Heroes::selctedHero()->level);
+        $this->enemy = isset($_SESSION["enemy"]) ? unserialize(serialize($_SESSION["enemy"])) : $this->enemy = new Enemy(Heroes::selctedHero()->level);
         $_SESSION["enemy"] = $this->enemy;
         echo json_encode( $this->enemy);
     }
@@ -70,13 +72,20 @@ class Fight extends Controller
                     $this->enemy->health -= $this->takeDamage($hero->damage*1.2,$this->enemy->defense);
                 break;
             case 3:
-                    if($hero->manna < 5) {
+                    if($hero->manna < 10) {
                         echo json_encode(['error'=>'Masz za mało many !!']);
                         return;
                     }
                     $hero->manna -= 10;
                     $this->enemy->health -= $this->takeDamage($hero->damage*1.4,$this->enemy->defense);
                 break;
+        }
+
+        //if hero win
+        if($this->enemy->health <= 0){
+            echo json_encode(['end'=>'win']);
+            $this->win($hero);
+            return;
         }
 
         //increases enemy damage based on selected skill (random)
@@ -110,6 +119,12 @@ class Fight extends Controller
                 break;
         }
         
+        //if enemy win
+        if($hero->health <= 0){
+            echo json_encode(['end'=>'lost', 'hero' => $hero->health, "enemy" => $this->enemy->health]);
+            $this->lost();
+            return;
+        }
 
         //save states 
         Heroes::setHeroByClass($hero);
@@ -125,18 +140,31 @@ class Fight extends Controller
     }
 
     function takeDamage($damage,$defense){
+        $value =0;
         if( $damage >  $defense){
-            
-            return  $damage * ( 1+0.05* ($damage - $defense) ); 
+            $value = $damage * ( 1+0.05* ($damage - $defense) );  
         }
         else if($damage ==  $defense){
-           
-            return  $damage;
+            $value =  $damage;
         }
         else{
-            
-            return  $damage * ( 1+0.025* ($damage - $defense) ); 
+            $value =  $damage * ( 1+0.025* ($damage - $defense) ); 
         }
+        return  $value <= 0 ? 1 : $value;
+    }
+
+    function win(Hero $hero){
+        $hero->health = $hero->maxHealth;
+        $hero->manna = $hero->maxManna;
+        $hero->level +=1;
+        $hero->point +=1;
+        array_push($hero->items,Items::$iteams[array_rand(Items::$iteams, 1)]);
+        unset($_SESSION['enemy']);
+        Heroes::setHeroByClass($hero);
+    }
+
+    function lost(){
+        session_destroy();
     }
 
 }

@@ -17,13 +17,13 @@ class Home extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     if(Heroes::isSelected()){
+    public function __construct()
+    {
+        if(Heroes::isSelected()){
 
-    //         $this->routeTo('umiejetnosci');
-    //     }
-    // } 
+            $this->routeTo('umiejetnosci');
+        }
+    } 
 
     /**
      * Show the index page

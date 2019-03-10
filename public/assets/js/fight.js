@@ -11,9 +11,17 @@ $.ajax({
 .done(function(res) {
     console.log(res); 
     hero = res;
-    setHero();
-    $('#my-hp-progress').attr('max',hero.health);
-    $('#my-manna-progress').attr('max',hero.manna);
+    $('#my-hp-progress').attr('max',hero.maxHealth);
+    $('#my-manna-progress').attr('max',hero.maxManna);
+
+    $('#my-hp').text(`${hero.health} hp`)
+    $('#my-manna').text(`${hero.manna} manny`)
+    $('#my-hp-progress').attr('value',hero.health);
+    $('#my-manna-progress').attr('value',hero.manna);
+
+    $( ".skill-effect" ).each((index,element) =>  {
+        $(element).attr("src",hero.skillsImage[index]);
+    });
 })
 .fail(function(error) {
     alert("Wystąpił błąd w połączeniu zobacz do konsoli");
@@ -31,9 +39,14 @@ $.ajax({
 .done(function(res) {
     console.log(res); 
     enemy = res;
-    setEnemy();
-    $('#target-hp-progress').attr('max',enemy.health);
-    $('#target-manna-progress').attr('max',enemy.manna);
+    $('#target-hp-progress').attr('max',enemy.maxHealth);
+    $('#target-manna-progress').attr('max',enemy.maxManna);
+
+    $('#target-hp').text(`${enemy.health} hp`)
+    $('#target-manna').text(`${enemy.manna} manny`)
+    $('#target-hp-progress').attr('value',enemy.health);
+    $('#target-manna-progress').attr('value',enemy.manna);
+
 })
 .fail(function(error) {
     alert("Wystąpił błąd w połączeniu zobacz do konsoli");
@@ -44,23 +57,6 @@ $.ajax({
 });
 
 
-function setHero(){
-    $('#my-hp').text(`${hero.health} hp`)
-    $('#my-manna').text(`${hero.manna} manny`)
-    $('#my-hp-progress').attr('value',hero.health);
-    $('#my-manna-progress').attr('value',hero.manna);
-
-    $( ".skill-effect" ).each((index,element) =>  {
-        $(element).attr("src",hero.skillsImage[index]);
-    });
-}
-
-function setEnemy(){
-    $('#target-hp').text(`${enemy.health} hp`)
-    $('#target-manna').text(`${enemy.manna} manny`)
-    $('#target-hp-progress').attr('value',enemy.health);
-    $('#target-manna-progress').attr('value',enemy.manna);
-}
 
 // PLAY Song
 //TODO fix short refresh (in promise)
@@ -68,7 +64,7 @@ function playSong(){
     //od 1 do 6 
     audio.src = `assets/audio/background-music-${Math.floor(Math.random() * 6) + 1}.mp3`;
     audio.load();
-   // audio.play(); TODO uncomments
+    audio.play(); //TODO uncomments
 }
 
 
@@ -108,15 +104,67 @@ function fight(skill){
             showPopup(res.error);
             return;
         }
+        if(typeof res.end !=='undefined'){
+            res.end === 'win' ? win() : lost();
+            return;
+        }
+        heroDamage = hero.health - res.hero.health;
+        enemyDamage = enemy.health - res.enemy.health;
+        //TODO remove the two lines underneath  
+        console.log("hero:" + hero.health + " - " +res.hero.health)
+        console.log("enemy:" +  enemy.health + " - " +res.enemy.health)
+
+        heroDamage = parseFloat(heroDamage).toFixed(2);
+        enemyDamage = parseFloat(enemyDamage).toFixed(2)
+        
         hero = res.hero;
         enemy = res.enemy;
-        setEnemy();
-        setTimeout(()=>setHero(),1000); 
-
-
+        
+        damageEnemy(enemyDamage);
+        setTimeout(()=>damageHero(heroDamage),1000); 
     })
     .fail(function(error) {
         alert("Wystąpił błąd w połączeniu zobacz do konsoli");
         console.log(error);
     })
 }
+
+function damageEnemy(damage){
+    $('#my-manna').text(`${hero.manna} manny`);
+    $('#my-manna-progress').attr('value',hero.manna);
+
+    $('#target-hp-progress').attr('value',enemy.health);
+    $('#target-hp').text(`${enemy.health} hp`);
+    showDamage();
+
+}
+function damageHero(damage){
+    $('#target-manna').text(`${enemy.manna} manny`);
+    $('#target-manna-progress').attr('value',enemy.manna);
+
+    $('#my-hp-progress').attr('value',hero.health);
+    $('#my-hp').text(`${hero.health} hp`);
+
+    showDamage(damage);
+}
+
+function showDamage(damage){
+    $('#damage').text(damage);
+    $('#damage').css('opacity','1');
+    setTimeout(()=>$('#damage').css('opacity','0'),400);
+}
+
+function win(){
+    $('#target-hp-progress').attr('value',0);
+    $('#target-hp').text(`0 hp`);
+    setTimeout(()=>document.location.href = '/Tekken/umiejetnosci',2000)
+}
+
+function lost(){
+    $('#my-hp-progress').attr('value',0);
+    $('#my-hp').text(`0 hp`);
+    setTimeout(()=>document.location.href = '/Tekken/',2000);
+}
+
+
+// Jak by co to nie ja pisałem... XD szkoda że nie używamy node js + ~es6

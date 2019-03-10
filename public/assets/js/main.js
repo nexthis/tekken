@@ -1,9 +1,16 @@
 function showPopup(text,time = 2000){
-    //TODO create jquery object - https://learn.jquery.com/using-jquery-core/jquery-object/
-    var popup = `<div class="popup error">${text}</div>`;
+    var height = 80;
+    var popup = $(`<div class="popup error">${text}</div>`);
+    $('.popup').each((index,element)=>{
+        height += $(element).outerHeight() + 10;
+    });
+    popup.css('top',height+'px')
     $('body').append( popup );
     setTimeout(()=>{
-        $('.popup').remove();
+        popup.remove();
     },time)
-   
+}
+
+function showModal(){
+
 }
