@@ -42,6 +42,8 @@ class Equipment extends Controller
     public function useItem(){
         header('Content-type: application/json');
         $hero = Heroes::selctedHero();
+
+
         $enemy  = unserialize(serialize($_SESSION['enemy']));
         foreach ($_REQUEST['type'] as  $value) {
 

@@ -11,6 +11,7 @@ $.ajax({
 .done(function(res) {
     console.log(res); 
     hero = res;
+    hero.health = parseFloat(hero.health).toFixed(2);
     $('#my-hp-progress').attr('max',hero.maxHealth);
     $('#my-manna-progress').attr('max',hero.maxManna);
 
@@ -39,6 +40,8 @@ $.ajax({
 .done(function(res) {
     console.log(res); 
     enemy = res;
+    enemy.health = parseFloat(enemy.health).toFixed(2);
+
     $('#target-hp-progress').attr('max',enemy.maxHealth);
     $('#target-manna-progress').attr('max',enemy.maxManna);
 
@@ -119,7 +122,10 @@ function fight(skill){
         
         hero = res.hero;
         enemy = res.enemy;
-        
+
+        hero.health = parseFloat(hero.health).toFixed(2);
+        enemy.health = parseFloat(enemy.health).toFixed(2);
+
         damageEnemy(enemyDamage);
         setTimeout(()=>damageHero(heroDamage),1000); 
     })
@@ -155,15 +161,25 @@ function showDamage(damage){
 }
 
 function win(){
+    $('.modal').fadeIn();
+    $('#title').text("Wygrałeś !!");
     $('#target-hp-progress').attr('value',0);
     $('#target-hp').text(`0 hp`);
-    setTimeout(()=>document.location.href = '/Tekken/umiejetnosci',2000)
+    $('#modal-confirm').click(()=>{
+        document.location.href = '/Tekken/'
+    })
 }
 
 function lost(){
+    $('.modal').fadeIn();
+    $('#title').text("Przegrałeś");
+
     $('#my-hp-progress').attr('value',0);
     $('#my-hp').text(`0 hp`);
-    setTimeout(()=>document.location.href = '/Tekken/',2000);
+
+    $('#modal-confirm').click(()=>{
+        document.location.href = '/Tekken/'
+    })
 }
 
 

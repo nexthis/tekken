@@ -23,7 +23,8 @@ class Hero{
             'value' => 20,
             'image' => 'assets/images/equipment/potions-health.png',
             'id' => 1
-        ],     
+        ],   
+
         //defalt item the same as namespace App\Models\Items;
     ];
 
