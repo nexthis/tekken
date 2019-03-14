@@ -2,12 +2,21 @@
 
 {% block title %}Tekken-Statystyki{% endblock %}
 
+{% block head%}
+<style>
+    body{
+        height: 100%;
+    }
+</style>
+{% endblock %}
+
+
 {% block body %}
 <div class="container">
     <div class="box hero-card has-background-dark has-text-light">
         <div class="columns">
             <div class="column is-one-third">
-                <img src="https://picsum.photos/400/600" class="hero-img" alt="">
+                <img src="{{hero.image}}" class="hero-img" alt="">
             </div>
             <div class="column">
                 <h1 class="statistics-title"> {{hero.name}} </h1>
@@ -16,13 +25,32 @@
                 <br />
                 <h1 class="statistics-title"> Punkty postaci: {{hero.point}} </h1>
                 <br />
-                <h1 class="statistics-title">Życie: {{hero.health}} hp</h1>
+                <h1 class="statistics-title">Życie: {{hero.maxHealth}} hp</h1>
                 <br />
                 <h1 class="statistics-title"> Damage: {{hero.damage}} </h1>
                 <br />
-                <h1 class="statistics-title"> Kasza Manna: {{hero.manna}} </h1>
+                <h1 class="statistics-title"> Kasza Manna: {{hero.maxManna}} </h1>
                 <br />
                 <h1 class="statistics-title"> Defensywa: {{hero.defense}} </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="box hero-card has-background-dark has-text-light">
+        <div class="columns">
+            <div class="column is-one-third">
+                <img src="{{enemy.image}}" class="hero-img" alt="">
+            </div>
+            <div class="column">
+                <h1 class="statistics-title"> {{enemy.name}} </h1>
+                <br />
+                <h1 class="statistics-title">Życie: {{enemy.maxHealth}} hp</h1>
+                <br />
+                <h1 class="statistics-title"> Damage: {{enemy.damage}} </h1>
+                <br />
+                <h1 class="statistics-title"> Kasza Manna: {{enemy.maxManna}} </h1>
+                <br />
+                <h1 class="statistics-title"> Defensywa: {{enemy.defense}} </h1>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ namespace App\Controllers;
 use \Core\View;
 use \Core\Controller;
 use App\Models\Heroes;
+use App\Models\Enemy;
 /**
  * Home controller
  *  
@@ -39,7 +40,8 @@ class Statistics extends Controller
             return;
         }
         $hero = Heroes::selctedHero();
-        View::renderTemplate('Statistics/index.html',compact('hero'));
+        $enemy = isset($_SESSION["enemy"]) ? unserialize(serialize($_SESSION["enemy"])) : $this->enemy = new Enemy(Heroes::selctedHero()->level);
+        View::renderTemplate('Statistics/index.html',compact('hero','enemy'));
 
     }
 

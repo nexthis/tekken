@@ -12,28 +12,28 @@ class Heroes
                'damage' => 30,
                'manna' => 20,
                'defense' => 70,
-               'image' => 'assets/images/heros/portrait/wojownik.png',
+               'image' => 'assets/images/heros/portrait/hero-wojownik.png',
                'skills-image' => ['assets/images/heros/skills/wojownik-1.png', 'assets/images/heros/skills/wojownik-2.png', 'assets/images/heros/skills/wojownik-3.png'],
           ],
 
           [
                'name' => "Mag",
                'health' => 30,
-               'damage' => 10,
+               'damage' => 100,
                'manna' => 70,
-               'defense' => 40,
-               'image' => 'https://picsum.photos/200/300',
+               'defense' => 20,
+               'image' => 'assets/images/heros/portrait/hero-mag.png',
                'skills-image' => ['assets/images/heros/skills/magik-1.png', 'assets/images/heros/skills/magik-2.png', 'assets/images/heros/skills/magik-3.png'],
           ],
 
           [
-               'name' => "Paladyn",
+               'name' => "Łucznik",
                'health' => 90,
                'damage' => 50,
                'manna' => 25,
                'defense' => 30,
-               'image' => 'https://picsum.photos/200/300',
-               'skills-image' => ['assets/images/heros/skills/paladyn-1.png', 'assets/images/heros/skills/paladyn-2.png', 'assets/images/heros/skills/paladyn-3.png'],
+               'image' => 'assets/images/heros/portrait/hero-lucznik.png',
+               'skills-image' => ['assets/images/heros/skills/lucznik-1.png', 'assets/images/heros/skills/lucznik-2.png', 'assets/images/heros/skills/lucznik-3.png'],
           ],
 
           [
@@ -42,7 +42,7 @@ class Heroes
                'damage' => 50,
                'manna' => 30,
                'defense' => 40,
-               'image' => 'assets/images/heros/portrait/nieumarły.png',
+               'image' => 'assets/images/heros/portrait/hero-nieumarły.png',
                'skills-image' => ['assets/images/heros/skills/nieumarły-1.png', 'assets/images/heros/skills/nieumarły-2.png', 'assets/images/heros/skills/nieumarły-3.png'],
           ],
 
@@ -52,7 +52,7 @@ class Heroes
                'damage' => 70,
                'manna' => 40,
                'defense' => 10,
-               'image' => 'assets/images/heros/portrait/ninja.png',
+               'image' => 'assets/images/heros/portrait/hero-ninja.png',
                'skills-image' => ['assets/images/heros/skills/ninja-1.png', 'assets/images/heros/skills/ninja-2.png', 'assets/images/heros/skills/ninja-3.png'],
           ],
 

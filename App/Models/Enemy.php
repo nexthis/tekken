@@ -15,6 +15,8 @@ class Enemy{
         $this->damage =rand ( 5 , 45 )*($level * 0.2);
         $this->manna =round( rand ( 5 , 80 )*($level * 0.2));
         $this->defense =rand ( 5 , 70 )*($level * 0.2);
+
+        $this->image = 'assets/images/enemies/enemie-'.rand(1,12).'.png';
         
         $this->maxManna = $this->manna;
         $this->maxHealth = $this->health;

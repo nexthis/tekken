@@ -23,6 +23,8 @@ $.ajax({
     $( ".skill-effect" ).each((index,element) =>  {
         $(element).attr("src",hero.skillsImage[index]);
     });
+
+    $('#my-image').attr('src',hero.image);
 })
 .fail(function(error) {
     alert("Wystąpił błąd w połączeniu zobacz do konsoli");
@@ -50,6 +52,7 @@ $.ajax({
     $('#target-hp-progress').attr('value',enemy.health);
     $('#target-manna-progress').attr('value',enemy.manna);
 
+    $('#target-image').attr('src',enemy.image);
 })
 .fail(function(error) {
     alert("Wystąpił błąd w połączeniu zobacz do konsoli");
@@ -67,7 +70,7 @@ function playSong(){
     //od 1 do 6 
     audio.src = `assets/audio/background-music-${Math.floor(Math.random() * 6) + 1}.mp3`;
     audio.load();
-    audio.play(); //TODO uncomments
+    audio.play(); 
 }
 
 
